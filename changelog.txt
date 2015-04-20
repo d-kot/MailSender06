@@ -1,0 +1,72 @@
+MailSender v05 finished 23.03.2015 at 8 pm
+
+Changelog:
+- multiple accounts support
+- all resources moved to one folder 'data'
+- added one feature to MailEngine properties file:
+props.put("mail.imaps.fetchsize","22020096")
+which controls buffer size for session
+@see http://stackoverflow.com/questions/14833423/javamail-how-to-handle-large-attachments
+- increased buffer size in MyMessage.downloadAtt() method to 4096
+
+Two actions above where results of a bug which consisted in 
+a problem in downloading attachments from 'hotmail' account.
+The downloading seemed stuck, steps above seemed to solve the issue.
+
+--------- PLANS
+- creating a class holding all string data which helps to 
+change the language of the app.[done]
+
+[01.04.2015]
+1) Drafts & Send panels:
+	- change in drafts and sent panel so that if no messages are selected 
+	in northWesst panels in infoLabel are shown messages
+	and messages after deleting mails are shown it that place;
+
+2) AccountsPanel:
+	- moving actionListeners to separate classes;
+	- fixed functionality of editing accounts and adding them:
+	I gave two names for one button, since once it saves new account
+	and the other time it saves changes. Accoring to names of this
+	button actionListener (AccPnlSaveListener) decides what to do.
+
+3) InboxPanel (MessageDoubleClickedListener)
+	- now messages are selected with a single click not by a double click.
+
+[02.04.2015]
+1) working on deleting accounts in AccountsPanel...
+
+[03.04.2015]
+1) Added actionListener to "Kontynuuj edycjê" button
+2) Changed the style of MailingPanel from "null" to "Layout"
+3) Added icons to HelloPanel
+4) added setLocationRelativeTo(null) to every window
+	so that resizing is always in the center of the screen
+	
+[06.04.2015]
+1) 	Added MULTITHREADING to the app. I've multithreaded sending process and 
+	updating Inbox process.
+2) 	Fixed a bug concerning seeAttButton and objects behind it which didn't disappear
+	after sending a message.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[BUGS]:
+	- on exiting accountsPanel there is a JOptionPane after saving edited account
+	- you can send e-mail even with blank mailTxtField
